@@ -4,7 +4,7 @@ function Navbar() {
       className="backdrop-blur-lg
 bg-[#050816]/70  pt-8 fixed top-0 left-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800 z-50"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
+      <div className="max-w-5xl mx-auto flex items-center justify-between px-8 py-5">
         <h1 className="text-4xl font-bold text-cyan-400">Kritika</h1>
 
         <ul className="flex items-center gap-8 text-white font-medium">
