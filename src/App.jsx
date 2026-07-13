@@ -1,40 +1,63 @@
+import { useState, useEffect } from "react";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Education from "./components/Education";
 import Skills from "./components/Skills";
+import Services from "./components/Services";
 import Project from "./components/Project";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
+import Loader from "./components/Loader";
+import ScrollProgress from "./components/ScrollProgress";
+import BackToTop from "./components/BackToTop";
+import BackgroundEffects from "./components/BackgroundEffects";
+
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
-    <div className="bg-slate-950 text-white overflow-x-hidden">
+    <div className="relative bg-slate-950 text-white overflow-x-hidden">
+
+      {/* Background Effects */}
+      <BackgroundEffects />
+      <div className="relative z-10">
+
+      {/* Scroll Progress */}
+      <ScrollProgress />
+
+      {/* Navbar */}
       <Navbar />
 
-      <section id="home">
-        <Hero />
-      </section>
+      {/* Main Content */}
+      <Hero />
+      <About />
+      <Education />
+      <Skills />
+      <Services />
+      <Project />
+      <Contact />
+      <Footer />
 
-      <section id="about">
-        <About />
-      </section>
+      {/* Back To Top */}
+      <BackToTop />
+      </div>
 
-      <section id="skills">
-        <Skills />
-      </section>
-
-      <section id="project">
-        <Project />
-      </section>
-
-      <section id="contact">
-        <Contact />
-      </section>
-      <section id="footer">
-        <Footer />
-      </section>
     </div>
-
   );
 }
 

@@ -32,7 +32,7 @@ function Project() {
   ];
 
   return (
-    <section id="projects" className="bg-slate-950 py-20 text-white">
+    <section id="project" className="bg-slate-950 py-20 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           My <span className="text-cyan-400">Projects</span>

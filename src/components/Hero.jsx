@@ -4,13 +4,15 @@ import {
   FaLinkedin,
   FaInstagram,
 } from "react-icons/fa";
+import AnimatedBackground from "./AnimatedBackground";
 
 function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-32 md:pt-24"
+      className="relative min-h-screen flex items-center pt-32 md:pt-24 overflow:hidden"
     >
+      <AnimatedBackground />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-20 items-center">
 
         {/* Left Side */}
@@ -32,6 +34,8 @@ function Hero() {
                 "React Developer",
                 2000,
                 "BCA Student",
+                2000,
+                "UI/UX Developer",
                 2000,
                 "Open to Internship",
                 2000,
@@ -107,16 +111,22 @@ function Hero() {
           <div className="relative">
 
             {/* Glow */}
-            <div className="absolute inset-0 rounded-full bg-cyan-500/20 blur-[90px]"></div>
+            <div className="absolute inset-0 
+            rounded-full 
+            bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.06),transparent_70%)]
+             blur-[90px]"></div>
 
             {/* Border Glow */}
             <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 animate-pulse"></div>
 
             {/* Image */}
+            
             <img
               src="/profile.png"
               alt="Kritika"
+              
               className="relative
+              shadow-[0_0_80px_rgba(34,211,238,0.35)]
               w-64 h-64
               sm:w-72 sm:h-72
               md:w-80 md:h-80
@@ -125,19 +135,14 @@ function Hero() {
               object-cover
               border-4
               border-cyan-400"
+              
             />
+            
           </div>
         </div>
       </div>
 
-      {/* Scroll Down */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-gray-400 text-sm mb-2">
-          Scroll Down
-        </span>
-
-        <span className="text-cyan-400 text-3xl">↓</span>
-      </div>
+      
     </section>
   );
 }

@@ -4,8 +4,10 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Education", href: "#education"},
   { name: "Skills", href: "#skills" },
-  { name: "Project", href: "#project" },
+  { name: "Services", href: "#services"},
+  { name: "Projects", href: "#project" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -16,30 +18,26 @@ export default function Navbar() {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
-
+  
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      setScrolled(scrollY > 30);
-
+      const scrollPosition = window.scrollY + 200;
+  
+      setScrolled(window.scrollY > 30);
+  
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute("id");
-
         if (
-          scrollY >= sectionTop &&
-          scrollY < sectionTop + sectionHeight
+          scrollPosition >= section.offsetTop &&
+          scrollPosition < section.offsetTop + section.offsetHeight
         ) {
-          setActive(sectionId);
+          setActive(section.id);
         }
       });
     };
-
-    handleScroll();
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
+    handleScroll();
+  
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -66,7 +64,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center gap-10">
+          <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               const id = link.href.substring(1);
 
@@ -148,7 +146,8 @@ export default function Navbar() {
 
             <a
               href="/resume.pdf"
-              className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-2.5 font-semibold text-white"
+              className="rounded-full bg-gradient-to-r 
+              from-cyan-500 to-blue-600 px-6 py-2.5 font-semibold text-white"
             >
               Resume
             </a>
